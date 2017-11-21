@@ -54,10 +54,10 @@ function myIntval ($string) {
 	echo "befor func =".$string.'<br>';
 	echo "max index= ".$length.'<br>';
 	$i = 0;
-	while ($string[$i] == 0) {
+	/*while ($string[$i] == 0) {
 		$string[$i] = null;
 		$i++;
-	}
+	}*/
 	for ($i = 0; $i <= $length; $i++ ) { 
 		if ($string[$i] == '.') {
 			echo "dot position is $i".'<br>';
@@ -74,11 +74,6 @@ $chi = 123.45;
 echo myIntval($chi);
 
 
-/*
-$trimm = "world";
-// echo "$trimm[1]";
-$trimm[1] = null;
-echo "$trimm";
-*/
+
 
 ?>
