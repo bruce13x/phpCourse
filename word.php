@@ -50,28 +50,25 @@ echo "end".'<br>'; //to check if a space removed
 // intval
 
 function myIntval ($string) {
-	$length = myStrlen($string) - 1;
-	echo "befor func =".$string.'<br>';
-	echo "max index= ".$length.'<br>';
+	$notintString = strval($string);
+	$length = myStrlen($notintString) -1 ;
 	$i = 0;
-	/*while ($string[$i] == 0) {
-		$string[$i] = null;
-		$i++;
-	}*/
-	for ($i = 0; $i <= $length; $i++ ) { 
-		if ($string[$i] == '.') {
-			echo "dot position is $i".'<br>';
-			break;
-		} 
-	}
 	while ($i <= $length) {
-		$string[$i] = null;
+		if ($notintString[$i] == '.') {
+			while ($i <= $length) {
+				$notintString[$i] = null;
+				$i++;
+			}
+		}
 		$i++;
 	}
-	return $string;
+
+	return $notintString;
 }
-$chi = 123.45;
-echo myIntval($chi);
+
+$float = 12.2365;
+echo 'You entered '.$float.'<br>';
+echo 'Function returns '.myIntval($float);
 
 
 
