@@ -20,7 +20,9 @@ echo "String length is ".myStrlen($string)." symbols".'<br>';
 function isEmpty ($var) {
 	if ($var === 0 || $var === null || $var === 0.0 || $var === array()) {
 		$result = "true";
-	} else $result = "false";
+	} else {
+		$result = "false";
+	}
 return $result;
 }
 
@@ -134,4 +136,5 @@ echo '<b>Before</b><br>';
 echo $string.'<br>';
 echo '<b>After</b><br>';
 echo myExplode($string, $separator).'<br>';
+
 ?>
