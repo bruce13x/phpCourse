@@ -68,9 +68,70 @@ function myIntval ($string) {
 
 $float = 12.2365;
 echo 'You entered '.$float.'<br>';
-echo 'Function returns '.myIntval($float);
+echo 'Function returns '.myIntval($float).'<br>';
 
+// implode
 
+function myImplode($array, $glue) {
+	$length = count($array) -1;
+	$i = 0;
+	$result2 = null;
+	while ($i <= $length) {
+		if ($i == $length) {
+			$result = $array[$i];
+		} else {
+			$result = $array[$i].$glue;
+		}
+		$i++;
+		$result2 = $result2.$result; 
+	}
+	return $result2;
+}
 
+$array = array('abc', 'def', 'ghi', 'xxx');
+$glue = ', ';
+echo '<b>array after myImplode </b>'.myImplode($array, $glue).'<br>';
 
+// explode
+
+function myExplode($string, $separator) {
+	$length = strlen($string) - 1;
+	$i = 0;
+	$y = 0;
+	$result = null;
+	$resArray = array();
+	while ($i <= $length) {
+		if ($string[$i] !== $separator) {
+			$result = $result.$string[$i];
+			
+
+		} else {
+			// echo "$result".'<br>';
+			$resArray[$y] = $result;
+			$result = null;
+			echo $resArray[$y].'<br>';
+			$y++;
+			
+		}
+		$i++;
+	}
+	//echo $resArray[0].'<br>';
+	//echo $resArray[1].'<br>';
+	return $result;
+
+}
+
+$string = 'I\'m first phrase. I\'m second phrase';
+$separator = '.';
+echo '<b>Before</b><br>';
+echo $string.'<br>';
+echo '<b>After</b><br>';
+echo myExplode($string, $separator).'<br>';
+
+$string = 'This is a long sentence';
+$separator = ' ';
+echo '<b>Before</b><br>';
+echo $string.'<br>';
+echo '<b>After</b><br>';
+echo myExplode($string, $separator).'<br>';
 ?>
