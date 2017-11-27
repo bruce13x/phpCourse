@@ -89,12 +89,14 @@ function myInArray($search, $array, $strict = null) {
 		if ($strict) {
 			if ($value === $search) {
 				$res = true;
+				break;
 			} else {
 				$res = false;
 			}
 		} else {
 			if ($value == $search) {
 				$res = true;
+				break;
 			} else {
 				$res = false;
 			}
@@ -104,8 +106,40 @@ function myInArray($search, $array, $strict = null) {
 }
 
 $array = [2, 5, '13', "color" => "red"];
-$search = '13';
+$search = "2";
 $result = myInArray($search, $array);
 var_dump($result);
+
+// array_diff ()
+
+function myArrayDiff($arrOne, $arrTwo) {
+	foreach ($arrOne as $key => $value) {
+		if (!myInArray($value, $arrTwo)) {
+			$res[$key] = $value;
+		}
+	}
+	return $res;
+}
+
+$arr1 = ["color" => "red", "color" => "blue", "green", "black"];
+$arr2 = ["red", "green"];
+$result = myArrayDiff($arr1, $arr2);
+var_dump($result);
+
+// array_intersect()
+
+function myArrayIntersect($arrOne, $arrTwo) {
+	foreach ($arrOne as $key => $value) {
+		if (in_array($value, $arrTwo)) {
+			$res[$key] = $value;
+		}
+	}
+	return $res;
+}
+
+$arr01 = [2, "color" => "red", "color" => "blue", "green", "black"];
+$arr02 = [2, "green", "blue", "red"];
+$res = myArrayIntersect($arr01, $arr02);
+var_dump($res);
 
 ?>
